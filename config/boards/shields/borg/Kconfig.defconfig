@@ -1,0 +1,6 @@
+if SHIELD_BORG
+
+config ZMK_KEYBOARD_NAME
+    default "BORG"
+
+endif

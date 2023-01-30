@@ -15,5 +15,5 @@
 include:
   - board: itsybitsy_nrf52840
     shield: borg
-  # - board: itsybitsy_nrf52840
-  #   shield: qalble
+  - board: itsybitsy_nrf52840
+    shield: qalble

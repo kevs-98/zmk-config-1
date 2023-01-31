@@ -1,48 +1,13 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
-#define FN  1
 
 / {
-    combos {
-        /* key positions
-            0    1   2   3   4   5   6   7   8   9   10  11  12  13     14  15
-            16   17  18  19  20  21  22  23  24  25  26  27  28  29   30  31  32
-            33   34  35  36  37  38  39  40  41  42  43  44  45       46  47  48
-            49   50  51  52  53  54  55  56  57  58  59  60  61           62
-            63   64  65              66              67  68  69  70   71  72  73
-        */
-        
-        compatible = "zmk,combos";
-        
-        #define COMBO(NAME, BINDINGS, KEYPOS) \
-          combo_##NAME { \
-            bindings = <BINDINGS>; \
-            key-positions = <KEYPOS>; \
-            layers = <0 1>; \
-          };
-        
-        COMBO(reset,       &reset,          14  49  68)
-        COMBO(bootloader,  &bootloader,     15  49  68)
-        COMBO(btreset,     &bt BT_CLR,      46  49  68)
-        COMBO(outble,      &out OUT_BLE,      32  49  68)
-        COMBO(outusb,      &out OUT_USB,      31  49  68)
-        COMBO(outtog,      &out OUT_TOG,      48  49  68)
-    };
 
     keymap {
         compatible = "zmk,keymap";
-
-        /* key positions
-            `       1   2   3   4   5   6   7   8   9   0   -   =   bksp        esc     mute
-            tab     q   w   e   r   t   y   u   i   o   p   [   ]   enter   insert  home    pgup
-            caps    a   s   d   f   g   h   j   k   l   ;   '   #           delete  end     pgdw
-            shft    \   z   x   c   v   b   n   m   ,   .   /   shift               up
-            ctrl    win alt            space           alt  win men ctrl    left    down    right
-        */
 
         default_layer {
             bindings = <
@@ -50,20 +15,9 @@
     &kp TAB       &kp Q    &kp W   &kp E   &kp R   &kp T   &kp Y   &kp U   &kp I   &kp O     &kp P    &kp LBKT    &kp RBKT      &kp ENTER    &kp INS   &kp HOME   &kp PG_UP
     &kp CAPS        &kp A    &kp S   &kp D   &kp F   &kp G   &kp H   &kp J   &kp K   &kp L     &kp SEMI &kp SQT     &kp HASH                 &kp DEL   &kp END    &kp PG_DN
     &kp LSHFT    &kp BSLH &kp Z   &kp X   &kp C   &kp V   &kp B   &kp N   &kp M   &kp COMMA &kp DOT &kp FSLH            &kp RSHFT                      &kp UP
-    &kp LCTRL     &kp LMETA  &kp LALT                      &kp SPACE                 &kp RALT      &mo FN       &kp K_CMENU     &kp RCTRL    &kp LEFT  &kp DOWN   &kp RIGHT 
+    &kp LCTRL     &kp LMETA  &kp LALT                      &kp SPACE                 &kp RALT      &none       &kp K_CMENU     &kp RCTRL    &kp LEFT  &kp DOWN   &kp RIGHT 
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-        };
-
-        fn {
-            bindings = <
-    &trans      &kp F1         &kp F2        &kp F3        &kp F4        &kp F5        &kp F6  &kp F7  &kp F8  &kp F9    &kp F10    &kp F11     &kp F12        &trans             &trans      &trans 
-    &trans        &trans         &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans    &trans      &trans      &trans        &trans       &kp PSCRN &kp SLCK   &kp PAUSE_BREAK
-    &trans          &trans         &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans    &trans      &trans      &trans                   &trans    &trans     &trans
-    &trans       &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &trans  &trans  &trans    &kp C_NEXT &kp C_PREV          &trans                         &trans
-    &trans        &trans           &trans                                                &kp C_PP                  &trans           &trans       &trans          &trans       &trans    &trans     &trans 
-            >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
     };
 };

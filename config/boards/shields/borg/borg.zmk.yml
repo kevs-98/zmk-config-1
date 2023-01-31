@@ -6,4 +6,3 @@ url: https://github.com/AdrianBorg/zmk-config
 requires: [itsybitsy_nrf52480]
 features:
   - keys
-  - encoder

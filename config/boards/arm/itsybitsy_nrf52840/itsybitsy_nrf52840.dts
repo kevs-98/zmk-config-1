@@ -26,16 +26,6 @@
 		};
 	};
 
-/*
-	vbatt: vbatt {
-		compatible = "zmk,battery-voltage-divider";
-		label = "VBATT";
-		io-channels = <&adc 5>;
-		output-ohms = <100000>;
-		full-ohms = <(100000 + 100000)>;
-	 };
-*/
-
 };
 
 &adc {

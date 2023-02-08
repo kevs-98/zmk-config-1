@@ -26,6 +26,7 @@
 		};
 	};
 
+/*
 	vbatt: vbatt {
 		compatible = "zmk,battery-voltage-divider";
 		label = "VBATT";
@@ -33,6 +34,7 @@
 		output-ohms = <100000>;
 		full-ohms = <(100000 + 100000)>;
 	 };
+*/
 
 };
 
